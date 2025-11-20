@@ -15,10 +15,30 @@ sleep 5
 # ============================
 #  PASSWORD PROTEKSI (GOLD)
 # ============================
+
 echo -e "\e[93m===============================================\e[0m"
 echo -e "\e[93m   NOTE: Password tidak ditampilkan saat diketik\e[0m"
 echo -e "\e[93m Silakan ketik password kemudian tekan ENTER\e[0m"
 echo -e "\e[93m===============================================\e[0m"
+echo ""
+echo -e "\e[92mSebelum melanjutkan install, Anda harus download file ini terlebih dahulu kemudian ekstrak:\e[0m"
+echo -e "\e[96mLink Download: \e[92mwww.downlod.com\e[0m"
+echo ""
+echo -e "\e[93m===============================================\e[0m"
+PASSWORD="Riswan1998"  # GANTI PASSWORD DI SINI
+
+read -sp "Masukkan Password Install: " userpass
+echo ""
+
+if [ "$userpass" != "$PASSWORD" ]; then
+    echo ""
+    echo -e "\e[91m❌ Password salah! Install dibatalkan.\e[0m"
+    exit 1
+fi
+
+echo ""
+echo -e "\e[92m✔ Password benar! Melanjutkan install...\e[0m"
+sleep 2m===============================================\e[0m"
 echo ""
 
 PASSWORD="Riswan1998"  # GANTI PASSWORD DI SINI
