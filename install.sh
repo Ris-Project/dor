@@ -1,33 +1,38 @@
 #!/bin/bash
 
 # ============================
-#  WELCOME BANNER
+#  WELCOME BANNER (GOLD)
 # ============================
 clear
-echo "==============================================="
-echo "     SELAMAT DATANG DI TERMUX DOR DORAN        "
-echo "              🔥 RISWAN STORE 🔥               "
-echo "==============================================="
+echo -e "\e[93m===============================================\e[0m"
+echo -e "\e[93m     SELAMAT DATANG DI TERMUX DOR DORAN        \e[0m"
+echo -e "\e[93m              🔥 RISWAN STORE 🔥               \e[0m"
+echo -e "\e[93m===============================================\e[0m"
 echo ""
 
 sleep 5
 
 # ============================
-#  PASSWORD PROTEKSI
+#  PASSWORD PROTEKSI (GOLD)
 # ============================
+echo -e "\e[93m===============================================\e[0m"
+echo -e "\e[93m   NOTE: Password tidak ditampilkan saat diketik\e[0m"
+echo -e "\e[93m Silakan ketik password kemudian tekan ENTER\e[0m"
+echo -e "\e[93m===============================================\e[0m"
+echo ""
+
 PASSWORD="Riswan1998"  # GANTI PASSWORD DI SINI
 
-read -sp "Masukkan Password Install: " userpass
+echo -en "\e[93mMasukkan Password Install: \e[0m"
+read -sp "" userpass
 echo ""
 
 if [ "$userpass" != "$PASSWORD" ]; then
-    echo ""
-    echo "❌ Password salah! Install dibatalkan."
+    echo -e "\n\e[91m❌ Password salah! Install dibatalkan.\e[0m"
     exit 1
 fi
 
-echo ""
-echo "✔ Password benar! Melanjutkan install..."
+echo -e "\n\e[92m✔ Password benar! Melanjutkan install...\e[0m"
 sleep 1
 clear
 
@@ -35,7 +40,7 @@ clear
 #  MULAI PROSES INSTALL
 # ============================
 
-echo ">>> AUTO INSTALL me-cli-sunset <<<"
+echo ">>> AUTO INSTALL DOR DORAN <<<"
 sleep 1
 
 # Update sistem
