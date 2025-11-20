@@ -9,35 +9,8 @@ echo -e "\e[93m     SELAMAT DATANG DI TERMUX DOR DORAN        \e[0m"
 echo -e "\e[93m              🔥 RISWAN STORE 🔥               \e[0m"
 echo -e "\e[93m===============================================\e[0m"
 echo ""
-sleep 5
+sleep 3
 
-# ============================
-#  PASSWORD PROTEKSI (GOLD)
-# ============================
-echo -e "\e[93m===============================================\e[0m"
-echo -e "\e[93mNOTE: Password tidak ditampilkan saat diketik\e[0m"
-echo -e "\e[93m Silakan ketik password kemudian tekan ENTER\e[0m"
-echo -e "\e[93m===============================================\e[0m"
-echo ""
-echo -e "\e[93mSebelum melanjutkan install, Anda harus download\e[0m"
-echo -e "\e[93mfile ini terlebih dahulu kemudian ekstrak:\e[0m"
-echo -e "\e[93mLink Download: \e[92mhttps://sfile.mobi/VhsrFBGRmHY\e[0m"
-echo ""
-echo -e "\e[93m===============================================\e[0m"
-
-PASSWORD="Riswan1998"
-
-echo -en "\e[93mMasukkan Password Install: \e[0m"
-read -sp userpass
-echo ""
-
-if [ "$userpass" != "$PASSWORD" ]; then
-    echo -e "\n\e[91m❌ Password salah! Install dibatalkan.\e[0m"
-    exit 1
-fi
-
-echo -e "\n\e[92m✔ Password benar! Melanjutkan install...\e[0m"
-sleep 1
 clear
 
 # ============================
