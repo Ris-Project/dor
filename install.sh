@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ============================
-#  WELCOME BANNER (GOLD)
+#  WELCOME BANNER
 # ============================
 clear
 echo -e "\e[93m===============================================\e[0m"
@@ -10,57 +10,46 @@ echo -e "\e[93m              🔥 RISWAN STORE 🔥               \e[0m"
 echo -e "\e[93m===============================================\e[0m"
 echo ""
 
-sleep 2
-
 # ============================
-#  PASSWORD PROTEKSI (GOLD)
+#  PASSWORD PROTEKSI
 # ============================
-echo -e "\e[93m===============================================\e[0m"
-echo -e "\e[93mNOTE: Password tidak ditampilkan saat diketik\e[0m"
-echo -e "\e[93m Silakan ketik password kemudian tekan ENTER\e[0m"
-echo -e "\e[93m===============================================\e[0m"
-echo ""
-echo -e "\e[93mSebelum melanjutkan install, Anda harus download\e[0m"
-echo -e "\e[93mfile ini terlebih dahulu kemudian ekstrak:\e[0m"
-echo -e "\e[93mLink Download: \e[92mhttps://sfile.mobi/VhsrFBGRmHY\e[0m"
-echo ""
-
-PASSWORD="Riswan1998"  # GANTI PASSWORD DI SINI
-
+PASSWORD="Riswan1998"
 read -sp "Masukkan Password Install: " userpass
 echo ""
-
 if [ "$userpass" != "$PASSWORD" ]; then
-    echo -e "\n\e[91m❌ Password salah! Install dibatalkan.\e[0m"
+    echo -e "\e[91m❌ Password salah! Install dibatalkan.\e[0m"
     exit 1
 fi
-
-echo -e "\n\e[92m✔ Password benar! Melanjutkan install...\e[0m"
+echo -e "\e[92m✔ Password benar! Melanjutkan install...\e[0m"
 sleep 1
 clear
 
 # ============================
-#  MULAI PROSES INSTALL
+#  UPDATE & INSTALL DEPENDENSI TERMUX
 # ============================
-echo ">>> AUTO INSTALL DOR DORAN <<<"
-sleep 1
+echo -e "\e[96m>>> Memperbarui sistem dan menginstal dependensi...\e[0m"
+pkg update -y && pkg upgrade -y
+pkg install git python -y
 
-# Update sistem
-apt update -y && apt full-upgrade -y
+# Upgrade pip & install Python library
+pip install --upgrade pip
+pip install pillow requests
 
-# Install dependensi
-apt install -y git python python3-pip python3-pillow || pkg install -y git python python3-pillow
-
-# Clone repo
+# ============================
+#  CLONE REPO
+# ============================
+echo -e "\e[96m>>> Mengunduh repo me-cli-sunset...\e[0m"
 rm -rf me-cli-sunset
-git clone https://github.com/purplemashu/me-cli-sunset
+git clone https://github.com/purplemashu/me-cli-sunset || { echo -e "\e[91mGagal clone repo!\e[0m"; exit 1; }
 
-cd me-cli-sunset || { echo "Gagal masuk folder me-cli-sunset!"; exit 1; }
+cd me-cli-sunset || { echo -e "\e[91mGagal masuk folder me-cli-sunset!\e[0m"; exit 1; }
 
 # Install requirements
 pip install -r requirements.txt
 
-# Buat file .env otomatis
+# ============================
+#  BUAT FILE .ENV OTOMATIS
+# ============================
 cat > .env <<EOF
 BASE_API_URL="https://api.myxl.xlaxiata.co.id"
 BASE_CIAM_URL="https://gede.ciam.xlaxiata.co.id"
@@ -76,12 +65,11 @@ X_API_BASE_SECRET="mU1Y4n1vBjf3M7tMnRkFU08mVyUJHed8B5En3EAniu1mXLixeuASmBmKnkyzV
 CIRCLE_MSISDN_KEY="5dccbf08920a5527"
 EOF
 
-echo ""
-echo -e "\e[92m===========================================\e[0m"
-echo -e "\e[92mFile .env berhasil dibuat & sudah terisi!\e[0m"
-echo -e "\e[92m===========================================\e[0m"
-echo ""
+echo -e "\e[92m✔ File .env berhasil dibuat!\e[0m"
 
-echo "Menjalankan tools..."
+# ============================
+#  JALANKAN TOOLS
+# ============================
+echo -e "\e[96m>>> Menjalankan tools...\e[0m"
 sleep 1
-python main.py 
+python main.py
