@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ============================
-#  WELCOME BANNER
+#  WELCOME BANNER (GOLD)
 # ============================
 clear
 echo -e "\e[93m===============================================\e[0m"
@@ -10,46 +10,76 @@ echo -e "\e[93m              🔥 RISWAN STORE 🔥               \e[0m"
 echo -e "\e[93m===============================================\e[0m"
 echo ""
 
+sleep 5
+
 # ============================
-#  PASSWORD PROTEKSI
+#  PASSWORD PROTEKSI (GOLD)
 # ============================
-PASSWORD="Riswan1998"
+
+echo -e "\e[93m===============================================\e[0m"
+echo -e "\e[93mNOTE: Password tidak ditampilkan saat diketik\e[0m"
+echo -e "\e[93m Silakan ketik password kemudian tekan ENTER\e[0m"
+echo -e "\e[93m===============================================\e[0m"
+echo ""
+echo -e "\e[93mSebelum melanjutkan install, Anda harus download\e[0m"
+echo -e "\e[93mfile ini terlebih dahulu kemudian ekstrak:\e[0m"
+echo -e "\e[93mLink Download: \e[92mhttps://sfile.mobi/VhsrFBGRmHY\e[0m"
+echo ""
+echo -e "\e[93m===============================================\e[0m"
+PASSWORD="Riswan1998"  # GANTI PASSWORD DI SINI
+
 read -sp "Masukkan Password Install: " userpass
 echo ""
+
 if [ "$userpass" != "$PASSWORD" ]; then
+    echo ""
     echo -e "\e[91m❌ Password salah! Install dibatalkan.\e[0m"
     exit 1
 fi
+
+echo ""
 echo -e "\e[92m✔ Password benar! Melanjutkan install...\e[0m"
+sleep 2m===============================================\e[0m"
+echo ""
+
+PASSWORD="Riswan1998"  # GANTI PASSWORD DI SINI
+
+echo -en "\e[93mMasukkan Password Install: \e[0m"
+read -sp "" userpass
+echo ""
+
+if [ "$userpass" != "$PASSWORD" ]; then
+    echo -e "\n\e[91m❌ Password salah! Install dibatalkan.\e[0m"
+    exit 1
+fi
+
+echo -e "\n\e[92m✔ Password benar! Melanjutkan install...\e[0m"
 sleep 1
 clear
 
 # ============================
-#  UPDATE & INSTALL DEPENDENSI TERMUX
+#  MULAI PROSES INSTALL
 # ============================
-echo -e "\e[96m>>> Memperbarui sistem dan menginstal dependensi...\e[0m"
-pkg update -y && pkg upgrade -y
-pkg install git python -y
 
-# Upgrade pip & install Python library
-pip install --upgrade pip
-pip install pillow requests
+echo ">>> AUTO INSTALL DOR DORAN <<<"
+sleep 1
 
-# ============================
-#  CLONE REPO
-# ============================
-echo -e "\e[96m>>> Mengunduh repo me-cli-sunset...\e[0m"
+# Update sistem
+apt update -y && apt full-upgrade -y
+
+# Install dependensi
+apt install -y git python python3-pip python-pillow || pkg install -y git python python-pillow
+
+# Clone repo
 rm -rf me-cli-sunset
-git clone https://github.com/purplemashu/me-cli-sunset || { echo -e "\e[91mGagal clone repo!\e[0m"; exit 1; }
+git clone https://github.com/purplemashu/me-cli-sunset
 
-cd me-cli-sunset || { echo -e "\e[91mGagal masuk folder me-cli-sunset!\e[0m"; exit 1; }
+cd me-cli-sunset || { echo "Gagal masuk folder me-cli-sunset!"; exit 1; }
 
 # Install requirements
 pip install -r requirements.txt
 
-# ============================
-#  BUAT FILE .ENV OTOMATIS
-# ============================
+# Buat file .env otomatis
 cat > .env <<EOF
 BASE_API_URL="https://api.myxl.xlaxiata.co.id"
 BASE_CIAM_URL="https://gede.ciam.xlaxiata.co.id"
@@ -65,11 +95,12 @@ X_API_BASE_SECRET="mU1Y4n1vBjf3M7tMnRkFU08mVyUJHed8B5En3EAniu1mXLixeuASmBmKnkyzV
 CIRCLE_MSISDN_KEY="5dccbf08920a5527"
 EOF
 
-echo -e "\e[92m✔ File .env berhasil dibuat!\e[0m"
+echo ""
+echo "==========================================="
+echo "File .env berhasil dibuat & sudah terisi!"
+echo "==========================================="
+echo ""
 
-# ============================
-#  JALANKAN TOOLS
-# ============================
-echo -e "\e[96m>>> Menjalankan tools...\e[0m"
+echo "Menjalankan tools..."
 sleep 1
 python main.py
