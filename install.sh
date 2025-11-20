@@ -17,12 +17,13 @@ sleep 5
 # ============================
 
 echo -e "\e[93m===============================================\e[0m"
-echo -e "\e[93m   NOTE: Password tidak ditampilkan saat diketik\e[0m"
+echo -e "\e[93mNOTE: Password tidak ditampilkan saat diketik\e[0m"
 echo -e "\e[93m Silakan ketik password kemudian tekan ENTER\e[0m"
 echo -e "\e[93m===============================================\e[0m"
 echo ""
-echo -e "\e[92mSebelum melanjutkan install, Anda harus download file ini terlebih dahulu kemudian ekstrak:\e[0m"
-echo -e "\e[96mLink Download: \e[92mwww.downlod.com\e[0m"
+echo -e "\e[92mSebelum melanjutkan install, Anda harus download\e[0m"
+echo -e "\e[92mfile ini terlebih dahulu kemudian ekstrak:\e[0m"
+echo -e "\e[96mLink Download: \e[92mCopy  https://sfile.mobi/VhsrFBGRmHY\e[0m"
 echo ""
 echo -e "\e[93m===============================================\e[0m"
 PASSWORD="Riswan1998"  # GANTI PASSWORD DI SINI
