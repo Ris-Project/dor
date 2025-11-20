@@ -9,45 +9,77 @@ echo -e "\e[93m     SELAMAT DATANG DI TERMUX DOR DORAN        \e[0m"
 echo -e "\e[93m              🔥 RISWAN STORE 🔥               \e[0m"
 echo -e "\e[93m===============================================\e[0m"
 echo ""
-sleep 2
+
+sleep 5
 
 # ============================
-#  NOTE SEBELUM INSTALL
+#  PASSWORD PROTEKSI (GOLD)
 # ============================
+
 echo -e "\e[93m===============================================\e[0m"
-echo -e "\e[93mNOTE: Sebelum melanjutkan Anda harus download\e[0m"
-echo -e "\e[93mfile ini terlebih dahulu kemudian ekstrak:\e[0m"
-echo -e "\e[93mLink Download: \e[92mhttps://sfile.mobi/VhsrFBGRmHY\e[0m"
+echo -e "\e[93mNOTE: Password tidak ditampilkan saat diketik\e[0m"
+echo -e "\e[93m Silakan ketik password kemudian tekan ENTER\e[0m"
 echo -e "\e[93m===============================================\e[0m"
 echo ""
-read -p "Tekan ENTER untuk melanjutkan install..." temp
+echo -e "\e[93mSebelum melanjutkan install, Anda harus download\e[0m"
+echo -e "\e[93mfile ini terlebih dahulu kemudian ekstrak:\e[0m"
+echo -e "\e[93mLink Download: \e[92mhttps://sfile.mobi/VhsrFBGRmHY\e[0m"
+echo ""
+echo -e "\e[93m===============================================\e[0m"
+PASSWORD="Riswan1998"  # GANTI PASSWORD DI SINI
 
+read -sp "Masukkan Password Install: " userpass
+echo ""
+
+if [ "$userpass" != "$PASSWORD" ]; then
+    echo ""
+    echo -e "\e[91m❌ Password salah! Install dibatalkan.\e[0m"
+    exit 1
+fi
+
+echo ""
+echo -e "\e[92m✔ Password benar! Melanjutkan install...\e[0m"
+sleep 2m===============================================\e[0m"
+echo ""
+
+PASSWORD="Riswan1998"  # GANTI PASSWORD DI SINI
+
+echo -en "\e[93mMasukkan Password Install: \e[0m"
+read -sp "" userpass
+echo ""
+
+if [ "$userpass" != "$PASSWORD" ]; then
+    echo -e "\n\e[91m❌ Password salah! Install dibatalkan.\e[0m"
+    exit 1
+fi
+
+echo -e "\n\e[92m✔ Password benar! Melanjutkan install...\e[0m"
+sleep 1
 clear
+
+# ============================
+#  MULAI PROSES INSTALL
+# ============================
+
 echo ">>> AUTO INSTALL DOR DORAN <<<"
 sleep 1
 
-# ============================
-#  UPDATE & INSTALL DEPENDENSI
-# ============================
+# Update sistem
 apt update -y && apt full-upgrade -y
+
+# Install dependensi
 apt install -y git python python3-pip python-pillow || pkg install -y git python python-pillow
 
-# ============================
-#  CLONE REPO
-# ============================
+# Clone repo
 rm -rf me-cli-sunset
 git clone https://github.com/purplemashu/me-cli-sunset
 
 cd me-cli-sunset || { echo "Gagal masuk folder me-cli-sunset!"; exit 1; }
 
-# ============================
-#  INSTALL PYTHON REQUIREMENTS
-# ============================
+# Install requirements
 pip install -r requirements.txt
 
-# ============================
-#  BUAT FILE .env OTOMATIS
-# ============================
+# Buat file .env otomatis
 cat > .env <<EOF
 BASE_API_URL="https://api.myxl.xlaxiata.co.id"
 BASE_CIAM_URL="https://gede.ciam.xlaxiata.co.id"
