@@ -15,7 +15,7 @@ sleep 2
 #  NOTE SEBELUM INSTALL
 # ============================
 echo -e "\e[93m===============================================\e[0m"
-echo -e "\e[93mNOTE: Sebelum melanjutkan install, Anda harus download\e[0m"
+echo -e "\e[93mNOTE: Sebelum melanjutkan Anda harus download\e[0m"
 echo -e "\e[93mfile ini terlebih dahulu kemudian ekstrak:\e[0m"
 echo -e "\e[93mLink Download: \e[92mhttps://sfile.mobi/VhsrFBGRmHY\e[0m"
 echo -e "\e[93m===============================================\e[0m"
