@@ -16,13 +16,15 @@ sleep 5
 #  PASSWORD PROTEKSI (GOLD)
 # ============================
 
-echo -e "\e[93m===============================================\e[0m"
+echo -e "\e[93m====================================================\e[0m"
 echo -e "\e[93mNOTE: Password tidak ditampilkan saat diketik\e[0m"
 echo -e "\e[93mSilakan ketik password kemudian tekan ENTER\e[0m"
-echo -e "\e[93m===============================================\e[0m"
+echo -e "\e[93m====================================================\e[0m"
 echo ""
-echo -e "\e[93mSebelum melanjutkan install, download file ini terlebih dahulu dan ekstrak\e[0m"
+echo -e "\e[93m====================================================\e[0m"
+echo -e "\e[93mSebelum install, download file ini terlebih dahulu dan ekstrak\e[0m"
 echo -e "\e[93mLink Download: \e[92mhttps://sfile.mobi/VhsrFBGRmHY\e[0m"
+echo -e "\e[93m====================================================\e[0m"
 echo ""
 
 PASSWORD="Riswan1998"  # GANTI PASSWORD DI SINI
